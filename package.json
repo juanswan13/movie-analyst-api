@@ -25,6 +25,7 @@
     "package.json": "^2.0.1"
   },
   "devDependencies": {
+    "express": "^4.16.4",
     "mocha": "^3.3.0",
     "mocha-jenkins-reporter": "^0.3.8",
     "mocha-junit-reporter": "^1.13.0",
