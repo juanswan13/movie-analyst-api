@@ -3,11 +3,10 @@ var express = require('express');
 var app = express();
 var mysql = require("mysql");
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'applicationuser',
-  password : 'applicationuser',
-  database : 'movie_db',
-  port: 3306
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASS,
+  database : process.env.DB_NAME
 });
 
 connection.connect(function(error){
@@ -18,28 +17,28 @@ connection.connect(function(error){
    }
 });
 
-function getMoviesReviews(callback) {    
+function getMoviesReviews(callback) {
         connection.query("SELECT * FROM movie_db.moviereview",
             function (err, rows) {
-                callback(err, rows); 
+                callback(err, rows);
             }
-        );    
+        );
 }
 
-function getReviewers(callback) {    
+function getReviewers(callback) {
         connection.query("SELECT * FROM movie_db.reviewer",
             function (err, rows) {
-                callback(err, rows); 
+                callback(err, rows);
             }
-        );    
+        );
 }
 
-function getPublications(callback) {    
+function getPublications(callback) {
         connection.query("SELECT * FROM movie_db.publication",
             function (err, rows) {
-                callback(err, rows); 
+                callback(err, rows);
             }
-        );    
+        );
 }
 
 //Testing endpoint
@@ -50,15 +49,16 @@ app.get('/', function(req, res){
 
 // Implement the movies API endpoint
 app.get('/movies', function(req, res){
-  getMoviesReviews(function (err, moviesResult){ 
+  getMoviesReviews(function (err, moviesResult){
        //you might want to do something is err is not null...      
        res.json(moviesResult);
+       console.log('Conexion correcta.');
     });
 })
 
 // Implement the reviewers API endpoint
 app.get('/reviewers', function(req, res){
-  getReviewers(function (err, reviewersResult){ 
+  getReviewers(function (err, reviewersResult){
        //you might want to do something is err is not null...      
        res.json(reviewersResult);
     });
@@ -66,7 +66,7 @@ app.get('/reviewers', function(req, res){
 
 // Implement the publications API endpoint
 app.get('/publications', function(req, res){
-  getPublications(function (err, publicationsResult){ 
+  getPublications(function (err, publicationsResult){
        //you might want to do something is err is not null...      
        res.json(publicationsResult);
     });
