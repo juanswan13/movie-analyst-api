@@ -9,19 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/juan-ruiz/movie-analyst-api.git"
+    "url": "git+https://github.com/juanswan13/movie-analyst-api.git"
   },
   "author": "Juan Ruiz",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/juan-ruiz/movie-analyst-api/issues"
+    "url": "https://github.com/juanswan13/movie-analyst-api/issues"
   },
-  "homepage": "https://github.com/juan-ruiz/movie-analyst-api#readme",
+  "homepage": "https://github.com/juanswan13/movie-analyst-api#readme",
   "dependencies": {
     "auth0-api-jwt-rsa-validation": "0.0.1",
-    "express": "^4.15.2",
+    "express": "^4.16.4",
     "express-jwt": "^5.3.0",
-    "mysql": "^2.14.1"
+    "mysql": "^2.16.0",
+    "package.json": "^2.0.1"
   },
   "devDependencies": {
     "mocha": "^3.3.0",
