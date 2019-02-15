@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
   user     : process.env.DB_USER || 'root',
   password : process.env.DB_PASS || 'password',
   database : process.env.DB_NAME || 'movie_db'
-  
+ });
 
 
 connection.connect(function(error){
