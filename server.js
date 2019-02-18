@@ -5,10 +5,10 @@ var mysql = require("mysql");
 var dotenv = require('dotenv');
 dotenv.config();
 var connection = mysql.createConnection({
-  host     : process.env.DB_HOST || '35.237.2.11',
-  user     : process.env.DB_USER || 'applicationuser',
-  password : process.env.DB_PASS || 'applicationuser',
-  database : process.env.DB_NAME || 'movie_db'
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASS,
+  database : process.env.DB_NAME 
  });
 
 
